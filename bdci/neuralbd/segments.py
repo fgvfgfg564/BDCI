@@ -2,7 +2,6 @@ import os
 from abc import ABC, abstractmethod
 from typing import Dict, Literal, Optional
 
-import kan
 import numpy as np
 import scipy.interpolate as interp
 import torch
@@ -37,15 +36,7 @@ class SegmentEstimatorBase(nn.Module, ABC):
         ] = "None"  # dir = 'left' means the bound is the left end
         self.segment: Literal["left", "mid", "right"] = None
 
-        if net_type == "KAN":
-            self.net = kan.KAN(
-                width=[n_in, 16, 2],
-                grid=3,
-                symbolic_enabled=False,
-                device="cuda",
-                grid_range=[-1, 1],
-            )
-        elif net_type == "MLP":
+        if net_type == "MLP":
             self.net = MLPWithTrainer(n_in, 128, 2, 6)
         else:
             raise ValueError(f"Unrecognized net type: {net_type}")

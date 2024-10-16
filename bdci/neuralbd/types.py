@@ -2,4 +2,4 @@ from typing import Literal
 
 from typing_extensions import TypeAlias
 
-NetType: TypeAlias = Literal["KAN", "MLP"]
+NetType: TypeAlias = Literal["MLP"]

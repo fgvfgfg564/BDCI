@@ -2,7 +2,6 @@ from typing import Literal
 
 import numpy as np
 import torch
-import yaml
 from tqdm import tqdm
 
 from .segments import SegmentEstimatorBase

@@ -76,11 +76,10 @@ def BDCI_RATE(
     R2,
     D2,
     metric_name: VALID_METRICS_TYPE = "GENERIC",
-    estimator_name="neural",
     device: Literal["cpu", "cuda"] = "cpu",
     k=3,
 ):
-    bd_calculator = create_bd_calculator(estimator_name, metric_name, device)
+    bd_calculator = create_bd_calculator("neural", metric_name, device)
     min, mean, max = bd_calculator.bd_rate_with_reliability(R1, D1, R2, D2, k=k)
     return min, max
 
@@ -91,10 +90,9 @@ def BDCI_QUALITY(
     R2,
     D2,
     metric_name: VALID_METRICS_TYPE = "GENERIC",
-    estimator_name="neural",
     device: Literal["cpu", "cuda"] = "cpu",
     k=3,
 ):
-    bd_calculator = create_bd_calculator(estimator_name, metric_name, device)
+    bd_calculator = create_bd_calculator("neural", metric_name, device)
     min, mean, max = bd_calculator.bd_quality_with_reliability(R1, D1, R2, D2, k=k)
     return min, max
