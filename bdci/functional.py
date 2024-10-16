@@ -5,8 +5,8 @@ import os
 from .estimators import ESTIMATOR_REGISTRY, EstimatorBase
 from .calculator import BDCalculator
 
-VALID_METRICS_TYPE: TypeAlias = Literal["PSNR_LIKE", "COV_LIKE", "DIST_LIKE", "GENERIC"]
-VALID_METRICS = ["PSNR_LIKE", "COV_LIKE", "DIST_LIKE", "GENERIC"]
+VALID_METRICS_TYPE: TypeAlias = Literal["PSNR", "COV", "DIST", "GENERIC"]
+VALID_METRICS = ["PSNR", "COV", "DIST", "GENERIC"]
 
 
 def create_estimator(
@@ -50,11 +50,11 @@ def BD_RATE(
     D1,
     R2,
     D2,
-    metric_name: VALID_METRICS_TYPE = "GENERIC",
+    weight_group: VALID_METRICS_TYPE = "GENERIC",
     estimator_name="neural",
     device: Literal["cpu", "cuda"] = "cpu",
 ):
-    bd_calculator = create_bd_calculator(estimator_name, metric_name, device)
+    bd_calculator = create_bd_calculator(estimator_name, weight_group, device)
     return bd_calculator.bd_rate(R1, D1, R2, D2)
 
 
@@ -63,11 +63,11 @@ def BD_QUALITY(
     D1,
     R2,
     D2,
-    metric_name: VALID_METRICS_TYPE = "GENERIC",
+    weight_group: VALID_METRICS_TYPE = "GENERIC",
     estimator_name="neural",
     device: Literal["cpu", "cuda"] = "cpu",
 ):
-    bd_calculator = create_bd_calculator(estimator_name, metric_name, device)
+    bd_calculator = create_bd_calculator(estimator_name, weight_group, device)
     return bd_calculator.bd_quality(R1, D1, R2, D2)
 
 
@@ -76,11 +76,11 @@ def BDCI_RATE(
     D1,
     R2,
     D2,
-    metric_name: VALID_METRICS_TYPE = "GENERIC",
+    weight_group: VALID_METRICS_TYPE = "GENERIC",
     device: Literal["cpu", "cuda"] = "cpu",
     k=3,
 ):
-    bd_calculator = create_bd_calculator("neural", metric_name, device)
+    bd_calculator = create_bd_calculator("neural", weight_group, device)
     min, mean, max = bd_calculator.bd_rate_with_reliability(R1, D1, R2, D2, k=k)
     return min, max
 
@@ -90,10 +90,10 @@ def BDCI_QUALITY(
     D1,
     R2,
     D2,
-    metric_name: VALID_METRICS_TYPE = "GENERIC",
+    weight_group: VALID_METRICS_TYPE = "GENERIC",
     device: Literal["cpu", "cuda"] = "cpu",
     k=3,
 ):
-    bd_calculator = create_bd_calculator("neural", metric_name, device)
+    bd_calculator = create_bd_calculator("neural", weight_group, device)
     min, mean, max = bd_calculator.bd_quality_with_reliability(R1, D1, R2, D2, k=k)
     return min, max
