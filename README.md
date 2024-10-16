@@ -11,7 +11,7 @@ pip install bdci
 ## Basic Usages
 
 ```python
-from bdci import BDCI_RATE
+from bdci import BDCI_RATE, BDCI_QUALITY
 
 # R1 and D1 are the anchor
 

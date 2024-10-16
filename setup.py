@@ -17,6 +17,7 @@ setup(
     include_package_data=True,
     platforms="any",
     install_requires=[
+        "python>=3.9",
         "numpy",
         "scipy",
         "torch>=1.7",

@@ -1,4 +1,5 @@
-from typing import Iterable, Optional, Union, Literal, TypeAlias
+from typing import Iterable, Optional, Union, Literal
+from typing_extensions import TypeAlias
 import os
 
 from .estimators import ESTIMATOR_REGISTRY, EstimatorBase
