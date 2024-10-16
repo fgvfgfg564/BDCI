@@ -7,11 +7,11 @@ setup(
     name="bdci",
     version='{{VERSION_PLACEHOLDER}}',
     keywords=["pip", "bdci", "vqi"],
-    description="Bjontegaard Delta Confidence Interval",  # 描述
+    description="Bjontegaard Delta Confidence Interval",
     long_description="Python library for computing Bjontegaard Delta-Confidence Interval (BDCI)",
-    license="MIT Licence",  # 许可证
-    url="https://github.com/fgvfgfg564/BDCI",  # 项目相关文件地址，一般是github项目地址即可
-    author="fgvfgfg564",  # 作者
+    license="MIT Licence",
+    url="https://github.com/fgvfgfg564/BDCI",
+    author="Xinyu Hang, NERCVT, PKU",
     author_email="xyhang@pku.edu.cn",
     packages=find_packages(),
     include_package_data=True,
@@ -19,9 +19,9 @@ setup(
     install_requires=[
         "numpy",
         "scipy",
-        "torch>=2.0.1",
+        "torch>=1.7",
         "tqdm",
         "transformers",
         "typing_extensions",
-    ],  # 这个项目依赖的第三方库
+    ],
 )
