@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="bdci",
-    version="1.0.0",
+    version='{{VERSION_PLACEHOLDER}}',,
     keywords=["pip", "bdci", "vqi"],
     description="Bjontegaard Delta Confidence Interval",  # 描述
     long_description="Python library for computing Bjontegaard Delta-Confidence Interval (BDCI)",
