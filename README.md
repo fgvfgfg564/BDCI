@@ -31,3 +31,19 @@ BDCI library provides 4 different weight groups corresponding to 4 different kin
 * `weight_group='COV`: Use when the quality metric is calculated using something like covariance, with a value range between -1 and 1, and the higher the better. For example, SSIM, MS-SSIM, IW-SSIM or FSIM.
 * `weight_group='DIST`: Use when the quality metric is a distance, with a value range between 0 and 1, and the lower the better. For example, LPIPS or RMSE.
 * `weight_group='GENERIC'`: Use only when the quality metric is unknown or atypical. 
+
+# Citations
+
+If you use this library in your research, please cite the following paper:
+
+```
+@misc{hang2024rethinkingbjontegaarddeltacompression,
+      title={Rethinking Bj{\o}ntegaard Delta for Compression Efficiency Evaluation: Are We Calculating It Precisely and Reliably?}, 
+      author={Xinyu Hang and Shenpeng Song and Zhimeng Huang and Chuanmin Jia and Siwei Ma and Wen Gao},
+      year={2024},
+      eprint={2410.12220},
+      archivePrefix={arXiv},
+      primaryClass={cs.MM},
+      url={https://arxiv.org/abs/2410.12220}, 
+}
+```
